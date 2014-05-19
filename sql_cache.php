@@ -158,32 +158,3 @@ class acm
     
 }
 
-$n = new acm();
-$time = $n->startTimer();
-$conn = mysqli_connect("localhost","root","","copasten_ads");
-$sql = "SELECT * FROM ads";// WHERE size='300x250'";
-$q = mysqli_query($conn, $sql);
-$r = array();
-$cache = $n->get(md5($sql));
-
-if( $cache===false )
-{
-    while($row = mysqli_fetch_array($q))
-    {
-        $r[] = $row;
-    }
-    echo "FROM SQL: \n\n";
-    print_r($r);
-    $n->set(md5($sql), $r, 60);
-}
-else
-{
-    echo "FROM CACHE: \n\n";
-    print_r($cache);
-}
-echo $n->returnTime($time);
-
-
-
-
-
