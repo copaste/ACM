@@ -17,6 +17,7 @@ cache_file.php is a page caching class. The concept behind page-caching is very 
 
 <h2>Usage example</h2>
 
+<pre>
 [php]
 <?php
 include "cache_file.php";
@@ -35,8 +36,9 @@ Some database calls, looping, etc
 <?php
 $cache->finishCache();
 [php]
+</pre>
 
-ACM SQL caching
+<h1>ACM SQL caching</h1>
 
 
 
