@@ -19,11 +19,11 @@ cache_file.php is a page caching class. The concept behind page-caching is very 
 
 <pre>
 [php]
-<?php
+&lt;?php
 include "cache_file.php";
 $cache = new acm();
-$cache->startCache();
-?>
+$cache-&gt;startCache();
+?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -33,8 +33,8 @@ $cache->startCache();
 Some database calls, looping, etc
 &lt;/body&gt;
 &lt;/html&gt;
-<?php
-$cache->finishCache();
+&lt;?php
+$cache-&gt;finishCache();
 [php]
 </pre>
 
