@@ -17,26 +17,26 @@ cache_file.php is a page caching class. The concept behind page-caching is very 
 
 <h2>Usage example</h2>
 
-<pre>
-[php]
-&lt;?php
+
+```php
+<?php
 include "cache_file.php";
 $cache = new acm();
-$cache-&gt;startCache();
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;Page title&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
+$cache->startCache();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page title</title>
+</head>
+<body>
 Some database calls, looping, etc
-&lt;/body&gt;
-&lt;/html&gt;
-&lt;?php
-$cache-&gt;finishCache();
-[php]
-</pre>
+</body>
+</html>
+<?php
+$cache->finishCache();
+```
+
 
 <h1>ACM SQL caching</h1>
 
@@ -46,8 +46,7 @@ sql_cache.php is a SQL Result caching class. It caches the results from SQL quer
 
 <h2>Usage example</h2>
 
-<pre>
-[php]
+```php
 $sqlCache = new acm();
 $conn = mysqli_connect("localhost","db_user","db_pass","db_name");
 $sql = "SELECT * FROM table_name";
@@ -76,5 +75,4 @@ else
     echo "FROM CACHE: \n\n";
     print_r($cache);
 }
-[/php]
-</pre>
+```
