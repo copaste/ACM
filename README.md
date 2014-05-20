@@ -40,6 +40,41 @@ $cache-&gt;finishCache();
 
 <h1>ACM SQL caching</h1>
 
+<p>
+sql_cache.php is a SQL Result caching class. It caches the results from SQL queries in file for defined time, after this time expired, it's ignored and the new SQL Query is needed.
+</p>
 
+<h2>Usage example</h2>
 
+<pre>
+[php]
+$sqlCache = new acm();
+$conn = mysqli_connect("localhost","db_user","db_pass","db_name");
+$sql = "SELECT * FROM table_name";
+$key = md5($sql);
+$query = mysqli_query($conn, $sql);
+$results = array();
 
+/* Get results from cache if exists */
+$cache = $sqlCache->get($key);
+
+/* If doesn't exists make request to DB */
+if( $cache===false )
+{
+    while($row = mysqli_fetch_array($query))
+    {
+        $results[] = $row;
+    }
+    echo "FROM SQL: \n\n";
+    print_r($results);
+    
+    /* Write results to cache for 1h 60*60=3600 */
+    $sqlCache->set($key, $results, 3600);
+}
+else
+{
+    echo "FROM CACHE: \n\n";
+    print_r($cache);
+}
+[/php]
+</pre>
