@@ -24,15 +24,15 @@ include "cache_file.php";
 $cache = new acm();
 $cache->startCache();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Page title</title>
-</head>
-<body>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Page title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 Some database calls, looping, etc
-</body>
-</html>
+&lt;/body&gt;
+&lt;/html&gt;
 <?php
 $cache->finishCache();
 [php]
